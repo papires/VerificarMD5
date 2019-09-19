@@ -64,6 +64,8 @@ criarTables();
 for root, dirs, files in os.walk(VAR_LOCAL):
 	for filename in files:
 		caminho=root+"/"+filename
+		if VAR_DB in filename:
+			continue		
 		try:
 			md5fileName=md5file(caminho)
 			inserirInfo(md5fileName,caminho)
